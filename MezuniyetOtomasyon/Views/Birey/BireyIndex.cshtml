@@ -1,0 +1,53 @@
+﻿@model MezuniyetOtomasyon.Models.BireyModel
+@*<script src="~/Content/assets/javascripts/extra/jquery.cookie.js"></script>*@
+@{
+    ViewBag.Title = "Öğrenci Sorgula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container">
+        <div class="col-md-10">
+            <div class="panel-body">
+                
+                    <div class="tabs">
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="active">
+                                <a href="#ogrenciNo" data-toggle="tab" class="text-center" aria-expanded="true"> Öğrenci Numarası ile Arama</a>
+                            </li>
+                            <li class="">
+                                <a href="#isimSoyisim" data-toggle="tab" class="text-center" aria-expanded="false">İsim Soyisim ile Arama</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="ogrenciNo" class="tab-pane active">
+                                @{ Html.RenderAction("OgrenciNoIndex", "OgrenciNo"); }
+                                </div>
+                            <div id="isimSoyisim" class="tab-pane">
+                               @{ Html.RenderAction("isimSoyisimIndex", "isimSoyisim"); }
+                            </div>
+                        </div>
+                    </div>
+                  
+               
+            </div>
+        </div>
+    </div>
+
+@*@section scripts{
+    
+    <script>
+        $(function () {
+
+
+            $(".nav.nav-tabs li").click(function () {
+                var x = $(this).children("a").attr("href");
+                console.log(x);
+            });
+
+            var deger = "#isimSoyisim";
+
+            $("a[href=#" + deger + "]").parent("li").addClass("active");
+            $(".tab-content " + deger).addClass("active");
+        });
+    </script>
+    }*@

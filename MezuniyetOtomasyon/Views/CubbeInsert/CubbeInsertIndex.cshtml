@@ -1,0 +1,64 @@
+﻿@model MezuniyetOtomasyon.Models.CubbeIslemleriModel
+@{
+    ViewBag.Title = "CubbeInsertIndex";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+@{string ogrenciNo = Request.QueryString["OgrenciNo"];}
+    @using (Html.BeginForm("CubbeInsertIndex", "CubbeInsert", null, FormMethod.Post, null))
+{
+        <hr /><hr />
+    <div class="col-md-3">
+
+        <div class="radio-custom radio-danger">
+            @Html.RadioButtonFor(x => x.hangisi, "alim")
+            <label >Cübbe Alımı</label>
+        </div>
+        
+        <div class="radio-custom radio-danger">
+            @Html.RadioButtonFor(x => x.hangisi, "teslim")
+            <label >Cübbe Teslimi</label>
+        </div>
+
+    </div>
+        
+    <div class="col-md-8">
+        
+        <div id="cubbeAlim">
+            <div class="col-md-5">
+                <strong class="control-label">Alım Tarihi:</strong>
+                @Html.TextBoxFor(x => x.mezuniyetDetay.CuppeAlimTarih, "{0:dd.MM.yyyy}", new { @class = "form-control", data_plugin_datepicker = "" })
+       
+            </div>
+            <div class="col-md-3">
+                <br />
+                <button type="submit" class="btn btn-primary" >Tamam</button>
+            </div>
+            </div>
+        <div id="cubbeTeslim">
+            <div class="col-md-5">
+                <strong class="control-label">Teslim Tarihi:</strong>
+                @Html.TextBoxFor(x => x.mezuniyetDetay.CuppeTeslimTarih, "{0:dd.MM.yyyy}", new { @class = "form-control", data_plugin_datepicker = "" })
+            
+            </div>
+            <div class="col-md-3">
+                <br />
+                <button type="submit" class="btn btn-primary" >Tamam</button>
+            </div>
+        </div>
+
+    </div>
+
+        @Html.TextBoxFor(x => x.numara, new { @Value=ogrenciNo, id="gizle"})
+        
+}
+
+
+
+
+
+
+
+
+

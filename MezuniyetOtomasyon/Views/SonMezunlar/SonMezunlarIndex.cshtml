@@ -1,0 +1,47 @@
+﻿@model List<MezuniyetOtomasyon.Models.SonMezunlarModel>
+@{
+    ViewBag.Title = "Son Mezunlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-body">
+    @using (Html.BeginForm("/SonMezunlarIndex", "SonMezunlar", null, FormMethod.Post, null))
+    {
+          @Html.DropDownList("Liste", ViewBag.DropDownCollection as SelectList,"Fakülte Seçiniz",new
+{
+    title = "Pick Batch",
+    onchange = "submit();"
+})
+    }
+  
+    @if (Model != null) {
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>İsim Soyisim</th>
+                    <th>Öğrenci Numarası</th>
+                    <th>Birim Adı</th>
+                    <th>Ayrrılış Tarihi</th>
+
+                </tr>
+            </thead>
+            
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(@item.descriptor, "../Birey/OgrenciDetay", new { OgrenciNo = @item.ogrenci_no })</td>
+                        <td>@item.ogrenci_no</td>
+                        <td>@item.birim_adi</td>
+                        <td>@item.ayrilis_tarihi</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>}
+    
+</div>
+
+
+

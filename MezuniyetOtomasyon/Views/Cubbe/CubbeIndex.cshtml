@@ -1,0 +1,67 @@
+﻿@model List<MezuniyetOtomasyon.Models.CubbeIslemleriModel>
+
+@{
+    ViewBag.Title = "Cübbe İşlemleri";
+
+}
+
+
+    <div class="col-md-12">
+        <br />
+        <div class="table-responsive" >
+            <table class="table mb-none">
+
+                <colgroup>
+                    <col class="col-md-8">
+                    <col class="col-md-2">
+                    <col class="col-md-2">
+
+                </colgroup>
+
+                <thead>
+                    <tr>
+
+                        <th>Akademik Yıl</th>
+
+                        <th>Cübbe Alım Tarihi</th>
+                        <th>Cübbe Teslim Tarihi</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.akademikYil</td>
+
+                            <td>
+                                @if (@item.mezuniyetDetay.CuppeAlimTarih != null)
+                                {
+                                    @item.mezuniyetDetay.CuppeAlimTarih
+                                }
+                                else
+                                {
+                                    <strong style="color:red">Cübbe Alınmadı</strong>
+                                }
+                            </td>
+                            <td>
+                                @if (@item.mezuniyetDetay.CuppeTeslimTarih != null)
+                                {
+                                    @item.mezuniyetDetay.CuppeTeslimTarih
+                                }
+                                else
+                                {
+                                    <strong style="color:red">Cübbe Teslim Edilmedi</strong>
+                                }
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            @{Html.RenderAction("CubbeInsertIndex", "CubbeInsert"); }
+        </div>
+    </div>
+
+

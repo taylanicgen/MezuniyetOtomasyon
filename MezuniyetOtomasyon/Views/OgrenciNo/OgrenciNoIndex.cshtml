@@ -1,0 +1,69 @@
+﻿
+@model MezuniyetOtomasyon.Models.BireyModel
+
+<div class="form-group mb-lg col-xs-12">
+    @using (Html.BeginForm("/BireyIndex", "Birey", null, FormMethod.Post, null))
+    {
+        <br />
+        <strong>Öğrenci Numarası:</strong>
+        <br /><br />
+
+
+        <div class="row">
+
+            <div class="col-md-2">
+                @Html.TextBoxFor(x => x.ogrenci_no, new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" id="ogrenciNoButon">Ara</button>
+            </div>
+
+        </div>
+    }
+    @if (Model != null && Model.ogrenci_no!=null)
+    {
+        <div class="row">
+            <article class="col-md-12">
+
+                <div class="table-responsive">
+                    <table class="table ">
+                        <colgroup>
+                            <col class="col-md-2">
+                            <col class="col-md-2">
+                            <col class="col-md-2">
+                            <col class="col-md-2">
+                            <col class="col-md-2">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>Öğrenci No</th>
+                                <th>Fakülte</th>
+                                <th>Mezuniyet Tarihi</th>
+                                <th>E-Posta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            <tr>
+                                <td>@Html.ActionLink(@Model.isim + " " + @Model.soyad, "../Birey/OgrenciDetay", new { OgrenciNo = @Model.ogrenci_no })</td>
+                                <td>@Model.ogrenci_no</td>
+                                <td>@Model.birim_adi</td>
+                                <td>@Model.mezuniyet_tarihi</td>
+                                <td>@Model.e_posta</td>
+                            </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </article>
+        </div>
+    }
+
+</div>

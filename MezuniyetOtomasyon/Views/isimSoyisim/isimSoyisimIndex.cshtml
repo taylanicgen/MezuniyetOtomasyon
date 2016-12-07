@@ -1,0 +1,77 @@
+﻿@model List<MezuniyetOtomasyon.Models.BireyModel>
+
+<div class="form-group mb-lg col-xs-12">
+    @using (Html.BeginForm("/BireyIndex", "Birey", null, FormMethod.Post, null))
+    {
+        
+
+
+        <div class="row">
+
+            <div class="col-md-2">
+                <br />
+                <strong>İsim :</strong>
+                <br /><br />
+                @Html.TextBox("isim","",new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                <br />
+                <strong>Soyisim :</strong>
+                <br /><br />
+                @Html.TextBox("soyisim", "", new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                <br /><br /><br />
+                <button type="submit" class="btn btn-primary" id="isimSoyisimButon">Ara</button>
+               
+            </div>
+
+        </div>
+    }
+    @if (Model != null)
+    {
+        <div class="row">
+            <article class="col-md-12">
+
+                <div class="table-responsive">
+                    <table class="table ">
+                        <colgroup>
+                            <col class="col-md-2">
+                            <col class="col-md-2">
+                            <col class="col-md-4">
+                            <col class="col-md-2">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>Öğrenci No</th>
+                                <th>Fakülte</th>
+                                <th>Mezuniyet Tarihi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach(var item in Model)
+                            {
+                                 <tr>
+                                <td>@Html.ActionLink(@item.isim + " " + @item.soyad, "../Birey/OgrenciDetay", new { OgrenciNo = @item.ogrenci_no })</td>
+                                <td>@item.ogrenci_no</td>
+                                <td>@item.birim_adi</td>
+                                <td>@item.mezuniyet_tarihi</td>
+
+                                 </tr>
+  
+                            }
+                        
+                        </tbody>
+                    </table>
+                </div>
+
+            </article>
+        </div>
+    }
+
+</div>
+<script>
+
+</script>

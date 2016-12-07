@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NoktaGSUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NoktaGSU.dbo.Adres' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="AdresId" />
+          </Key>
+          <Property Name="AdresId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Birey_Id" Type="int" />
+          <Property Name="Adres" Type="varchar" MaxLength="1000" />
+          <Property Name="semt" Type="varchar" MaxLength="50" />
+          <Property Name="ilce" Type="varchar" MaxLength="50" />
+          <Property Name="il" Type="varchar" MaxLength="50" />
+          <Property Name="Ulke" Type="varchar" MaxLength="50" />
+          <Property Name="Tip" Type="int" />
+          <Property Name="PostaKodu" Type="varchar" MaxLength="50" />
+          <Property Name="Oncelik" Type="int" />
+          <Property Name="Statu" Type="int" />
+          <Property Name="Birim_Id" Type="int" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="smalldatetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModDate" Type="smalldatetime" />
+          <Property Name="ogrencino" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="AkademikYil">
+          <Key>
+            <PropertyRef Name="AY_Id" />
+          </Key>
+          <Property Name="AY_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descriptor" Type="varchar" MaxLength="150" />
+          <Property Name="Adi" Type="varchar" MaxLength="50" />
+          <Property Name="Baslangic_Tarihi" Type="datetime" />
+          <Property Name="Bitis_Tarihi" Type="datetime" />
+          <Property Name="AYStatu" Type="int" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModDate" Type="datetime" />
+          <Property Name="birimtip" Type="int" />
+          <Property Name="Yil" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Birey">
+          <Key>
+            <PropertyRef Name="Birey_Id" />
+          </Key>
+          <Property Name="Birey_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descriptor" Type="varchar" MaxLength="100" />
+          <Property Name="Unvan" Type="varchar" MaxLength="10" />
+          <Property Name="UzmanlikAlani" Type="varchar" MaxLength="150" />
+          <Property Name="UzmanlikKaynak" Type="varchar" MaxLength="150" />
+          <Property Name="SicilNo" Type="varchar" MaxLength="20" />
+          <Property Name="OgrenciNo" Type="varchar" MaxLength="20" />
+          <Property Name="OSYMNO" Type="varchar" MaxLength="11" />
+          <Property Name="isim" Type="varchar" MaxLength="50" />
+          <Property Name="soyad" Type="varchar" MaxLength="50" />
+          <Property Name="dogum_tarihi" Type="datetime" />
+          <Property Name="dogum_yeri" Type="varchar" MaxLength="50" />
+          <Property Name="medeni_durum" Type="int" />
+          <Property Name="cinsiyeti" Type="int" />
+          <Property Name="anne_adi" Type="varchar" MaxLength="50" />
+          <Property Name="baba_adi" Type="varchar" MaxLength="50" />
+          <Property Name="aciklama" Type="varchar" MaxLength="100" />
+          <Property Name="resim" Type="image" />
+          <Property Name="uyrugu" Type="varchar" MaxLength="40" />
+          <Property Name="nc_kimlik_no" Type="varchar" MaxLength="50" />
+          <Property Name="nc_ili" Type="varchar" MaxLength="50" />
+          <Property Name="nc_ilcesi" Type="varchar" MaxLength="50" />
+          <Property Name="nc_mahal_koy" Type="varchar" MaxLength="50" />
+          <Property Name="nc_seri_no" Type="varchar" MaxLength="20" />
+          <Property Name="nc_kayit_no" Type="varchar" MaxLength="20" />
+          <Property Name="nc_cilt_no" Type="varchar" MaxLength="20" />
+          <Property Name="nc_aile_sira_no" Type="varchar" MaxLength="20" />
+          <Property Name="nc_kutuk_sira_no" Type="varchar" MaxLength="20" />
+          <Property Name="nc_verildigi_yer" Type="varchar" MaxLength="50" />
+          <Property Name="nc_verilis_nedeni" Type="varchar" MaxLength="50" />
+          <Property Name="nc_verilis_tarihi" Type="datetime" />
+          <Property Name="askerlik" Type="int" />
+          <Property Name="askerlik_sube" Type="varchar" MaxLength="10" />
+          <Property Name="tecil_suresi" Type="datetime" />
+          <Property Name="dini" Type="varchar" MaxLength="20" />
+          <Property Name="kan_grubu" Type="int" />
+          <Property Name="PasaportNo" Type="varchar" MaxLength="20" />
+          <Property Name="PasaportTarihi" Type="datetime" />
+          <Property Name="VizeAlmaTarihi" Type="datetime" />
+          <Property Name="GecerlilikSuresi" Type="varchar" MaxLength="10" />
+          <Property Name="YokSis" Type="varchar" MaxLength="800" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="smalldatetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModDate" Type="smalldatetime" />
+          <Property Name="IDOGRENCI" Type="int" />
+          <Property Name="blmkod" Type="int" />
+          <Property Name="Birim_Id" Type="int" />
+          <Property Name="KISIID" Type="int" />
+          <Property Name="TurkAsilli" Type="int" />
+          <Property Name="dogum_yeri_diger" Type="nvarchar" MaxLength="250" />
+          <Property Name="sube" Type="varchar" MaxLength="50" />
+          <Property Name="yokogrencino" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BireyBirimIliskisi">
+          <Key>
+            <PropertyRef Name="BBI_Id" />
+          </Key>
+          <Property Name="Birey_Id" Type="int" />
+          <Property Name="Birim_Id" Type="int" />
+          <Property Name="BBI_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrenciNo" Type="varchar" MaxLength="20" />
+          <Property Name="Relation_Type" Type="int" />
+          <Property Name="Statu" Type="int" />
+          <Property Name="Hazirlik" Type="int" />
+          <Property Name="HazirlikYili" Type="int" />
+          <Property Name="HazirlikNotu" Type="int" />
+          <Property Name="Okudugu_Donem" Type="int" />
+          <Property Name="AkademikDonem" Type="int" />
+          <Property Name="GelmeSekli" Type="varchar" MaxLength="30" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="AyrilisTarihi" Type="datetime" />
+          <Property Name="BolumDerecesi" Type="float" />
+          <Property Name="BursStatu" Type="int" />
+          <Property Name="HarcStatu" Type="int" />
+          <Property Name="Ay_Id" Type="int" />
+          <Property Name="OkulTip" Type="int" />
+          <Property Name="OkulTuru" Type="varchar" MaxLength="120" />
+          <Property Name="GeldigiOkul" Type="varchar" MaxLength="120" />
+          <Property Name="BolumTip" Type="int" />
+          <Property Name="GeldigiBolum" Type="varchar" MaxLength="150" />
+          <Property Name="MezuniyetTarihi" Type="datetime" />
+          <Property Name="NotOrtalamasi" Type="float" />
+          <Property Name="DiplomaNo" Type="int" />
+          <Property Name="LESPuaniSay" Type="float" />
+          <Property Name="LESPuaniSoz" Type="float" />
+          <Property Name="LESPuaniEA" Type="float" />
+          <Property Name="LESPuaniDIL" Type="float" />
+          <Property Name="LESTarihi" Type="datetime" />
+          <Property Name="GirisPuani" Type="float" />
+          <Property Name="Gorev" Type="varchar" MaxLength="20" />
+          <Property Name="Aciklama" Type="varchar" MaxLength="100" />
+          <Property Name="Sinif" Type="varchar" MaxLength="10" />
+          <Property Name="KayitAY_Id" Type="int" />
+          <Property Name="YonetmelikTuru" Type="int" />
+          <Property Name="KayitDonem" Type="int" />
+          <Property Name="StajDurumu" Type="int" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModDate" Type="datetime" />
+          <Property Name="DiplomaAlindi" Type="int" />
+          <Property Name="DiplomaTarihi" Type="datetime" />
+          <Property Name="TCKimlikNo" Type="nchar" MaxLength="20" />
+          <Property Name="EgitimYili" Type="float" />
+          <Property Name="IkinciUniversiteOkuduMu" Type="int" />
+          <Property Name="Harcgec" Type="int" />
+          <Property Name="Asamasi" Type="int" />
+          <Property Name="transfer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gelbolkod" Type="int" />
+          <Property Name="Girbolkod" Type="int" />
+          <Property Name="Kredi" Type="float" />
+          <Property Name="GNO5" Type="float" />
+          <Property Name="GNO" Type="float" />
+          <Property Name="uyruk" Type="int" />
+          <Property Name="OrtModDate" Type="datetime" />
+          <Property Name="Onay" Type="int" />
+          <Property Name="OnKayitNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnKayitBasvuruDonemId" Type="int" />
+          <Property Name="MezAY_Id" Type="int" />
+          <Property Name="MezSomestre" Type="int" />
+          <Property Name="OgrYariyil" Type="int" />
+          <Property Name="Seviye" Type="nvarchar" MaxLength="50" />
+          <Property Name="OgrHakKaybetTar" Type="nvarchar" MaxLength="50" />
+          <Property Name="CapBirey_Id" Type="int" />
+          <Property Name="ogrnomanolya" Type="nvarchar" MaxLength="50" />
+          <Property Name="KayitDondurma" Type="int" />
+          <Property Name="IslemTarihYKK" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Birimler">
+          <Key>
+            <PropertyRef Name="Birim_Id" />
+          </Key>
+          <Property Name="Birim_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BT_Id" Type="int" Nullable="false" />
+          <Property Name="Birim_Kodu" Type="varchar" MaxLength="20" />
+          <Property Name="Birim_Adi" Type="varchar" MaxLength="250" />
+          <Property Name="Birim_KisaAd" Type="varchar" MaxLength="250" />
+          <Property Name="Birim_Adi_ENG" Type="varchar" MaxLength="150" />
+          <Property Name="BirimDesimalKodu" Type="varchar" MaxLength="50" />
+          <Property Name="VerdigiUnvan" Type="varchar" MaxLength="100" />
+          <Property Name="Kapasite" Type="int" />
+          <Property Name="Ogretim_Dili" Type="int" />
+          <Property Name="Ogretim_Tipi" Type="int" />
+          <Property Name="Aciklama" Type="varchar" MaxLength="4000" />
+          <Property Name="www" Type="varchar" MaxLength="150" />
+          <Property Name="Donem" Type="int" />
+          <Property Name="Adres" Type="varchar" MaxLength="350" />
+          <Property Name="Azami" Type="int" />
+          <Property Name="AzamiDonem" Type="int" />
+          <Property Name="BirimTip" Type="int" />
+          <Property Name="Statu" Type="int" />
+          <Property Name="OSYMKodu" Type="varchar" MaxLength="20" />
+          <Property Name="PuanTuru" Type="int" />
+          <Property Name="AlisSekli" Type="int" />
+          <Property Name="Hazirlik" Type="int" />
+          <Property Name="HazirlikTipi" Type="int" />
+          <Property Name="KurulusTarihi" Type="datetime" />
+          <Property Name="Logo" Type="image" />
+          <Property Name="OsymBursluKodu" Type="varchar" MaxLength="50" />
+          <Property Name="OsymBurssuzKodu" Type="varchar" MaxLength="50" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="smalldatetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModDate" Type="smalldatetime" />
+          <Property Name="YoKSisID" Type="int" />
+          <Property Name="BasPuan" Type="int" />
+          <Property Name="PuanTurYL" Type="int" />
+          <Property Name="HarcAzami" Type="varchar" MaxLength="20" />
+          <Property Name="dilsinavi" Type="int" />
+          <Property Name="Lisansort" Type="float" />
+          <Property Name="dilpuani" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birimseviye" Type="int" />
+          <Property Name="KimlikKisaAd" Type="nchar" MaxLength="50" />
+          <Property Name="Anabilimdali" Type="nvarchar" MaxLength="250" />
+          <Property Name="YKKBirim_Id" Type="int" />
+          <Property Name="Fakulte_Id" Type="int" />
+          <Property Name="Fakulte_Adi" Type="nvarchar" MaxLength="250" />
+          <Property Name="BirimDipDefAd" Type="nvarchar" MaxLength="250" />
+          <Property Name="UstBirimAd" Type="nvarchar" MaxLength="250" />
+          <Property Name="DipDefterisim" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NoktaGSU.dbo.Iletisim' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Iletisim">
+          <Key>
+            <PropertyRef Name="IletisimId" />
+          </Key>
+          <Property Name="IletisimId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Birey_Id" Type="int" />
+          <Property Name="Birim_Id" Type="int" />
+          <Property Name="IletisimTip" Type="int" />
+          <Property Name="Numara" Type="varchar" MaxLength="50" />
+          <Property Name="Dahili" Type="varchar" MaxLength="10" />
+          <Property Name="Oncelik" Type="int" />
+          <Property Name="Statu" Type="int" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="smalldatetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="MezuniyetDetay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Birey_Id" Type="int" />
+          <Property Name="MezTar" Type="datetime" />
+          <Property Name="Cuppe" Type="bit" />
+          <Property Name="CuppeAlimTarih" Type="datetime" />
+          <Property Name="CuppeTeslimTarih" Type="datetime" />
+          <Property Name="AY_Id" Type="int" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModUserDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserGroupId" Type="int" Nullable="false" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="BireyId" Type="int" />
+          <Property Name="Birim_Id" Type="int" />
+          <Property Name="LoginCount" Type="int" />
+          <Property Name="Aciklama" Type="varchar" MaxLength="255" />
+          <Property Name="CreateUserId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModUserId" Type="int" />
+          <Property Name="ModDate" Type="datetime" />
+        </EntityType>
+        <Function Name="USP_Son50MezunGetir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MezunSayisi" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="NoktaGSUModelStoreContainer">
+          <EntitySet Name="AkademikYil" EntityType="Self.AkademikYil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Birey" EntityType="Self.Birey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BireyBirimIliskisi" EntityType="Self.BireyBirimIliskisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Birimler" EntityType="Self.Birimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MezuniyetDetay" EntityType="Self.MezuniyetDetay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Adres" EntityType="Self.Adres" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Adres].[AdresId] AS [AdresId], 
+    [Adres].[Birey_Id] AS [Birey_Id], 
+    [Adres].[Adres] AS [Adres], 
+    [Adres].[semt] AS [semt], 
+    [Adres].[ilce] AS [ilce], 
+    [Adres].[il] AS [il], 
+    [Adres].[Ulke] AS [Ulke], 
+    [Adres].[Tip] AS [Tip], 
+    [Adres].[PostaKodu] AS [PostaKodu], 
+    [Adres].[Oncelik] AS [Oncelik], 
+    [Adres].[Statu] AS [Statu], 
+    [Adres].[Birim_Id] AS [Birim_Id], 
+    [Adres].[CreateUserId] AS [CreateUserId], 
+    [Adres].[CreateDate] AS [CreateDate], 
+    [Adres].[ModUserId] AS [ModUserId], 
+    [Adres].[ModDate] AS [ModDate], 
+    [Adres].[ogrencino] AS [ogrencino]
+    FROM [dbo].[Adres] AS [Adres]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Iletisim" EntityType="Self.Iletisim" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Iletisim].[IletisimId] AS [IletisimId], 
+    [Iletisim].[Birey_Id] AS [Birey_Id], 
+    [Iletisim].[Birim_Id] AS [Birim_Id], 
+    [Iletisim].[IletisimTip] AS [IletisimTip], 
+    [Iletisim].[Numara] AS [Numara], 
+    [Iletisim].[Dahili] AS [Dahili], 
+    [Iletisim].[Oncelik] AS [Oncelik], 
+    [Iletisim].[Statu] AS [Statu], 
+    [Iletisim].[CreateUserId] AS [CreateUserId], 
+    [Iletisim].[CreateDate] AS [CreateDate], 
+    [Iletisim].[ModUserId] AS [ModUserId], 
+    [Iletisim].[ModDate] AS [ModDate]
+    FROM [dbo].[Iletisim] AS [Iletisim]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NoktaGSUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Birey">
+          <Key>
+            <PropertyRef Name="Birey_Id" />
+          </Key>
+          <Property Name="Birey_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descriptor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Unvan" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UzmanlikAlani" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="UzmanlikKaynak" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SicilNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OgrenciNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OSYMNO" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="isim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dogum_tarihi" Type="DateTime" Precision="3" />
+          <Property Name="dogum_yeri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="medeni_durum" Type="Int32" />
+          <Property Name="cinsiyeti" Type="Int32" />
+          <Property Name="anne_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="baba_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="aciklama" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="resim" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="uyrugu" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="nc_kimlik_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nc_ili" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nc_ilcesi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nc_mahal_koy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nc_seri_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nc_kayit_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nc_cilt_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nc_aile_sira_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nc_kutuk_sira_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nc_verildigi_yer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nc_verilis_nedeni" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nc_verilis_tarihi" Type="DateTime" Precision="3" />
+          <Property Name="askerlik" Type="Int32" />
+          <Property Name="askerlik_sube" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tecil_suresi" Type="DateTime" Precision="3" />
+          <Property Name="dini" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="kan_grubu" Type="Int32" />
+          <Property Name="PasaportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PasaportTarihi" Type="DateTime" Precision="3" />
+          <Property Name="VizeAlmaTarihi" Type="DateTime" Precision="3" />
+          <Property Name="GecerlilikSuresi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="YokSis" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="0" />
+          <Property Name="IDOGRENCI" Type="Int32" />
+          <Property Name="blmkod" Type="Int32" />
+          <Property Name="Birim_Id" Type="Int32" />
+          <Property Name="KISIID" Type="Int32" />
+          <Property Name="TurkAsilli" Type="Int32" />
+          <Property Name="dogum_yeri_diger" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="sube" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yokogrencino" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BireyBirimIliskisi">
+          <Key>
+            <PropertyRef Name="BBI_Id" />
+          </Key>
+          <Property Name="Birey_Id" Type="Int32" />
+          <Property Name="Birim_Id" Type="Int32" />
+          <Property Name="BBI_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Relation_Type" Type="Int32" />
+          <Property Name="Statu" Type="Int32" />
+          <Property Name="Hazirlik" Type="Int32" />
+          <Property Name="HazirlikYili" Type="Int32" />
+          <Property Name="HazirlikNotu" Type="Int32" />
+          <Property Name="Okudugu_Donem" Type="Int32" />
+          <Property Name="AkademikDonem" Type="Int32" />
+          <Property Name="GelmeSekli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="AyrilisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="BolumDerecesi" Type="Double" />
+          <Property Name="BursStatu" Type="Int32" />
+          <Property Name="HarcStatu" Type="Int32" />
+          <Property Name="Ay_Id" Type="Int32" />
+          <Property Name="OkulTip" Type="Int32" />
+          <Property Name="OkulTuru" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="GeldigiOkul" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="BolumTip" Type="Int32" />
+          <Property Name="GeldigiBolum" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MezuniyetTarihi" Type="DateTime" Precision="3" />
+          <Property Name="NotOrtalamasi" Type="Double" />
+          <Property Name="DiplomaNo" Type="Int32" />
+          <Property Name="LESPuaniSay" Type="Double" />
+          <Property Name="LESPuaniSoz" Type="Double" />
+          <Property Name="LESPuaniEA" Type="Double" />
+          <Property Name="LESPuaniDIL" Type="Double" />
+          <Property Name="LESTarihi" Type="DateTime" Precision="3" />
+          <Property Name="GirisPuani" Type="Double" />
+          <Property Name="Gorev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sinif" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="KayitAY_Id" Type="Int32" />
+          <Property Name="YonetmelikTuru" Type="Int32" />
+          <Property Name="KayitDonem" Type="Int32" />
+          <Property Name="StajDurumu" Type="Int32" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="3" />
+          <Property Name="DiplomaAlindi" Type="Int32" />
+          <Property Name="DiplomaTarihi" Type="DateTime" Precision="3" />
+          <Property Name="TCKimlikNo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="EgitimYili" Type="Double" />
+          <Property Name="IkinciUniversiteOkuduMu" Type="Int32" />
+          <Property Name="Harcgec" Type="Int32" />
+          <Property Name="Asamasi" Type="Int32" />
+          <Property Name="transfer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gelbolkod" Type="Int32" />
+          <Property Name="Girbolkod" Type="Int32" />
+          <Property Name="Kredi" Type="Double" />
+          <Property Name="GNO5" Type="Double" />
+          <Property Name="GNO" Type="Double" />
+          <Property Name="uyruk" Type="Int32" />
+          <Property Name="OrtModDate" Type="DateTime" Precision="3" />
+          <Property Name="Onay" Type="Int32" />
+          <Property Name="OnKayitNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnKayitBasvuruDonemId" Type="Int32" />
+          <Property Name="MezAY_Id" Type="Int32" />
+          <Property Name="MezSomestre" Type="Int32" />
+          <Property Name="OgrYariyil" Type="Int32" />
+          <Property Name="Seviye" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OgrHakKaybetTar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CapBirey_Id" Type="Int32" />
+          <Property Name="ogrnomanolya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KayitDondurma" Type="Int32" />
+          <Property Name="IslemTarihYKK" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Birimler">
+          <Key>
+            <PropertyRef Name="Birim_Id" />
+          </Key>
+          <Property Name="Birim_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BT_Id" Type="Int32" Nullable="false" />
+          <Property Name="Birim_Kodu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Birim_Adi" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Birim_KisaAd" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Birim_Adi_ENG" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="BirimDesimalKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VerdigiUnvan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Kapasite" Type="Int32" />
+          <Property Name="Ogretim_Dili" Type="Int32" />
+          <Property Name="Ogretim_Tipi" Type="Int32" />
+          <Property Name="Aciklama" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="www" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Donem" Type="Int32" />
+          <Property Name="Adres" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Azami" Type="Int32" />
+          <Property Name="AzamiDonem" Type="Int32" />
+          <Property Name="BirimTip" Type="Int32" />
+          <Property Name="Statu" Type="Int32" />
+          <Property Name="OSYMKodu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PuanTuru" Type="Int32" />
+          <Property Name="AlisSekli" Type="Int32" />
+          <Property Name="Hazirlik" Type="Int32" />
+          <Property Name="HazirlikTipi" Type="Int32" />
+          <Property Name="KurulusTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="OsymBursluKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OsymBurssuzKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="0" />
+          <Property Name="YoKSisID" Type="Int32" />
+          <Property Name="BasPuan" Type="Int32" />
+          <Property Name="PuanTurYL" Type="Int32" />
+          <Property Name="HarcAzami" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dilsinavi" Type="Int32" />
+          <Property Name="Lisansort" Type="Double" />
+          <Property Name="dilpuani" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birimseviye" Type="Int32" />
+          <Property Name="KimlikKisaAd" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Anabilimdali" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="YKKBirim_Id" Type="Int32" />
+          <Property Name="Fakulte_Id" Type="Int32" />
+          <Property Name="Fakulte_Adi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BirimDipDefAd" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UstBirimAd" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DipDefterisim" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserGroupId" Type="Int32" Nullable="false" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BireyId" Type="Int32" />
+          <Property Name="Birim_Id" Type="Int32" />
+          <Property Name="LoginCount" Type="Int32" />
+          <Property Name="Aciklama" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="AdresId" />
+          </Key>
+          <Property Name="AdresId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Birey_Id" Type="Int32" />
+          <Property Name="Adres1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="semt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="il" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ulke" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tip" Type="Int32" />
+          <Property Name="PostaKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Oncelik" Type="Int32" />
+          <Property Name="Statu" Type="Int32" />
+          <Property Name="Birim_Id" Type="Int32" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="0" />
+          <Property Name="ogrencino" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Iletisim">
+          <Key>
+            <PropertyRef Name="IletisimId" />
+          </Key>
+          <Property Name="IletisimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Birey_Id" Type="Int32" />
+          <Property Name="Birim_Id" Type="Int32" />
+          <Property Name="IletisimTip" Type="Int32" />
+          <Property Name="Numara" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dahili" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Oncelik" Type="Int32" />
+          <Property Name="Statu" Type="Int32" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="NoktaGSUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Birey" EntityType="Self.Birey" />
+          <EntitySet Name="BireyBirimIliskisi" EntityType="Self.BireyBirimIliskisi" />
+          <EntitySet Name="Birimler" EntityType="Self.Birimler" />
+          <EntitySet Name="UserGroup" EntityType="Self.UserGroup" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Adres" EntityType="Self.Adres" />
+          <EntitySet Name="Iletisim" EntityType="Self.Iletisim" />
+          <FunctionImport Name="USP_Son50MezunGetir" ReturnType="Collection(NoktaGSUModel.USP_Son50MezunGetir_Result)">
+          <Parameter Name="MezunSayisi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="AkademikYil" EntityType="NoktaGSUModel.AkademikYil" />
+          <EntitySet Name="MezuniyetDetay" EntityType="NoktaGSUModel.MezuniyetDetay" />
+        </EntityContainer>
+        <ComplexType Name="USP_Son50MezunGetir_Result">
+          <Property Type="Int32" Name="Birey_Id" Nullable="false" />
+          <Property Type="String" Name="Descriptor" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Statu" Nullable="true" />
+          <Property Type="DateTime" Name="AyrilisTarihi" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="NotOrtalamasi" Nullable="true" />
+          <Property Type="String" Name="anne_adi" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="AkademikYil">
+          <Key>
+            <PropertyRef Name="AY_Id" />
+          </Key>
+          <Property Name="AY_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descriptor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Baslangic_Tarihi" Type="DateTime" Precision="3" />
+          <Property Name="Bitis_Tarihi" Type="DateTime" Precision="3" />
+          <Property Name="AYStatu" Type="Int32" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="3" />
+          <Property Name="birimtip" Type="Int32" />
+          <Property Name="Yil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MezuniyetDetay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Birey_Id" Type="Int32" />
+          <Property Name="MezTar" Type="DateTime" Precision="3" />
+          <Property Name="Cuppe" Type="Boolean" />
+          <Property Name="AY_Id" Type="Int32" />
+          <Property Name="CreateUserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModUserId" Type="Int32" />
+          <Property Name="ModUserDate" Type="DateTime" Precision="3" />
+          <Property Name="CuppeAlimTarih" Type="DateTime" Precision="3" />
+          <Property Name="CuppeTeslimTarih" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NoktaGSUModelStoreContainer" CdmEntityContainer="NoktaGSUEntities">
+          <EntitySetMapping Name="Birey">
+            <EntityTypeMapping TypeName="NoktaGSUModel.Birey">
+              <MappingFragment StoreEntitySet="Birey">
+                <ScalarProperty Name="Birey_Id" ColumnName="Birey_Id" />
+                <ScalarProperty Name="Descriptor" ColumnName="Descriptor" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="UzmanlikAlani" ColumnName="UzmanlikAlani" />
+                <ScalarProperty Name="UzmanlikKaynak" ColumnName="UzmanlikKaynak" />
+                <ScalarProperty Name="SicilNo" ColumnName="SicilNo" />
+                <ScalarProperty Name="OgrenciNo" ColumnName="OgrenciNo" />
+                <ScalarProperty Name="OSYMNO" ColumnName="OSYMNO" />
+                <ScalarProperty Name="isim" ColumnName="isim" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="dogum_tarihi" ColumnName="dogum_tarihi" />
+                <ScalarProperty Name="dogum_yeri" ColumnName="dogum_yeri" />
+                <ScalarProperty Name="medeni_durum" ColumnName="medeni_durum" />
+                <ScalarProperty Name="cinsiyeti" ColumnName="cinsiyeti" />
+                <ScalarProperty Name="anne_adi" ColumnName="anne_adi" />
+                <ScalarProperty Name="baba_adi" ColumnName="baba_adi" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="resim" ColumnName="resim" />
+                <ScalarProperty Name="uyrugu" ColumnName="uyrugu" />
+                <ScalarProperty Name="nc_kimlik_no" ColumnName="nc_kimlik_no" />
+                <ScalarProperty Name="nc_ili" ColumnName="nc_ili" />
+                <ScalarProperty Name="nc_ilcesi" ColumnName="nc_ilcesi" />
+                <ScalarProperty Name="nc_mahal_koy" ColumnName="nc_mahal_koy" />
+                <ScalarProperty Name="nc_seri_no" ColumnName="nc_seri_no" />
+                <ScalarProperty Name="nc_kayit_no" ColumnName="nc_kayit_no" />
+                <ScalarProperty Name="nc_cilt_no" ColumnName="nc_cilt_no" />
+                <ScalarProperty Name="nc_aile_sira_no" ColumnName="nc_aile_sira_no" />
+                <ScalarProperty Name="nc_kutuk_sira_no" ColumnName="nc_kutuk_sira_no" />
+                <ScalarProperty Name="nc_verildigi_yer" ColumnName="nc_verildigi_yer" />
+                <ScalarProperty Name="nc_verilis_nedeni" ColumnName="nc_verilis_nedeni" />
+                <ScalarProperty Name="nc_verilis_tarihi" ColumnName="nc_verilis_tarihi" />
+                <ScalarProperty Name="askerlik" ColumnName="askerlik" />
+                <ScalarProperty Name="askerlik_sube" ColumnName="askerlik_sube" />
+                <ScalarProperty Name="tecil_suresi" ColumnName="tecil_suresi" />
+                <ScalarProperty Name="dini" ColumnName="dini" />
+                <ScalarProperty Name="kan_grubu" ColumnName="kan_grubu" />
+                <ScalarProperty Name="PasaportNo" ColumnName="PasaportNo" />
+                <ScalarProperty Name="PasaportTarihi" ColumnName="PasaportTarihi" />
+                <ScalarProperty Name="VizeAlmaTarihi" ColumnName="VizeAlmaTarihi" />
+                <ScalarProperty Name="GecerlilikSuresi" ColumnName="GecerlilikSuresi" />
+                <ScalarProperty Name="YokSis" ColumnName="YokSis" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+                <ScalarProperty Name="IDOGRENCI" ColumnName="IDOGRENCI" />
+                <ScalarProperty Name="blmkod" ColumnName="blmkod" />
+                <ScalarProperty Name="Birim_Id" ColumnName="Birim_Id" />
+                <ScalarProperty Name="KISIID" ColumnName="KISIID" />
+                <ScalarProperty Name="TurkAsilli" ColumnName="TurkAsilli" />
+                <ScalarProperty Name="dogum_yeri_diger" ColumnName="dogum_yeri_diger" />
+                <ScalarProperty Name="sube" ColumnName="sube" />
+                <ScalarProperty Name="yokogrencino" ColumnName="yokogrencino" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BireyBirimIliskisi">
+            <EntityTypeMapping TypeName="NoktaGSUModel.BireyBirimIliskisi">
+              <MappingFragment StoreEntitySet="BireyBirimIliskisi">
+                <ScalarProperty Name="Birey_Id" ColumnName="Birey_Id" />
+                <ScalarProperty Name="Birim_Id" ColumnName="Birim_Id" />
+                <ScalarProperty Name="BBI_Id" ColumnName="BBI_Id" />
+                <ScalarProperty Name="OgrenciNo" ColumnName="OgrenciNo" />
+                <ScalarProperty Name="Relation_Type" ColumnName="Relation_Type" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="Hazirlik" ColumnName="Hazirlik" />
+                <ScalarProperty Name="HazirlikYili" ColumnName="HazirlikYili" />
+                <ScalarProperty Name="HazirlikNotu" ColumnName="HazirlikNotu" />
+                <ScalarProperty Name="Okudugu_Donem" ColumnName="Okudugu_Donem" />
+                <ScalarProperty Name="AkademikDonem" ColumnName="AkademikDonem" />
+                <ScalarProperty Name="GelmeSekli" ColumnName="GelmeSekli" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="AyrilisTarihi" ColumnName="AyrilisTarihi" />
+                <ScalarProperty Name="BolumDerecesi" ColumnName="BolumDerecesi" />
+                <ScalarProperty Name="BursStatu" ColumnName="BursStatu" />
+                <ScalarProperty Name="HarcStatu" ColumnName="HarcStatu" />
+                <ScalarProperty Name="Ay_Id" ColumnName="Ay_Id" />
+                <ScalarProperty Name="OkulTip" ColumnName="OkulTip" />
+                <ScalarProperty Name="OkulTuru" ColumnName="OkulTuru" />
+                <ScalarProperty Name="GeldigiOkul" ColumnName="GeldigiOkul" />
+                <ScalarProperty Name="BolumTip" ColumnName="BolumTip" />
+                <ScalarProperty Name="GeldigiBolum" ColumnName="GeldigiBolum" />
+                <ScalarProperty Name="MezuniyetTarihi" ColumnName="MezuniyetTarihi" />
+                <ScalarProperty Name="NotOrtalamasi" ColumnName="NotOrtalamasi" />
+                <ScalarProperty Name="DiplomaNo" ColumnName="DiplomaNo" />
+                <ScalarProperty Name="LESPuaniSay" ColumnName="LESPuaniSay" />
+                <ScalarProperty Name="LESPuaniSoz" ColumnName="LESPuaniSoz" />
+                <ScalarProperty Name="LESPuaniEA" ColumnName="LESPuaniEA" />
+                <ScalarProperty Name="LESPuaniDIL" ColumnName="LESPuaniDIL" />
+                <ScalarProperty Name="LESTarihi" ColumnName="LESTarihi" />
+                <ScalarProperty Name="GirisPuani" ColumnName="GirisPuani" />
+                <ScalarProperty Name="Gorev" ColumnName="Gorev" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Sinif" ColumnName="Sinif" />
+                <ScalarProperty Name="KayitAY_Id" ColumnName="KayitAY_Id" />
+                <ScalarProperty Name="YonetmelikTuru" ColumnName="YonetmelikTuru" />
+                <ScalarProperty Name="KayitDonem" ColumnName="KayitDonem" />
+                <ScalarProperty Name="StajDurumu" ColumnName="StajDurumu" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+                <ScalarProperty Name="DiplomaAlindi" ColumnName="DiplomaAlindi" />
+                <ScalarProperty Name="DiplomaTarihi" ColumnName="DiplomaTarihi" />
+                <ScalarProperty Name="TCKimlikNo" ColumnName="TCKimlikNo" />
+                <ScalarProperty Name="EgitimYili" ColumnName="EgitimYili" />
+                <ScalarProperty Name="IkinciUniversiteOkuduMu" ColumnName="IkinciUniversiteOkuduMu" />
+                <ScalarProperty Name="Harcgec" ColumnName="Harcgec" />
+                <ScalarProperty Name="Asamasi" ColumnName="Asamasi" />
+                <ScalarProperty Name="transfer" ColumnName="transfer" />
+                <ScalarProperty Name="Gelbolkod" ColumnName="Gelbolkod" />
+                <ScalarProperty Name="Girbolkod" ColumnName="Girbolkod" />
+                <ScalarProperty Name="Kredi" ColumnName="Kredi" />
+                <ScalarProperty Name="GNO5" ColumnName="GNO5" />
+                <ScalarProperty Name="GNO" ColumnName="GNO" />
+                <ScalarProperty Name="uyruk" ColumnName="uyruk" />
+                <ScalarProperty Name="OrtModDate" ColumnName="OrtModDate" />
+                <ScalarProperty Name="Onay" ColumnName="Onay" />
+                <ScalarProperty Name="OnKayitNo" ColumnName="OnKayitNo" />
+                <ScalarProperty Name="OnKayitBasvuruDonemId" ColumnName="OnKayitBasvuruDonemId" />
+                <ScalarProperty Name="MezAY_Id" ColumnName="MezAY_Id" />
+                <ScalarProperty Name="MezSomestre" ColumnName="MezSomestre" />
+                <ScalarProperty Name="OgrYariyil" ColumnName="OgrYariyil" />
+                <ScalarProperty Name="Seviye" ColumnName="Seviye" />
+                <ScalarProperty Name="OgrHakKaybetTar" ColumnName="OgrHakKaybetTar" />
+                <ScalarProperty Name="CapBirey_Id" ColumnName="CapBirey_Id" />
+                <ScalarProperty Name="ogrnomanolya" ColumnName="ogrnomanolya" />
+                <ScalarProperty Name="KayitDondurma" ColumnName="KayitDondurma" />
+                <ScalarProperty Name="IslemTarihYKK" ColumnName="IslemTarihYKK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Birimler">
+            <EntityTypeMapping TypeName="NoktaGSUModel.Birimler">
+              <MappingFragment StoreEntitySet="Birimler">
+                <ScalarProperty Name="Birim_Id" ColumnName="Birim_Id" />
+                <ScalarProperty Name="BT_Id" ColumnName="BT_Id" />
+                <ScalarProperty Name="Birim_Kodu" ColumnName="Birim_Kodu" />
+                <ScalarProperty Name="Birim_Adi" ColumnName="Birim_Adi" />
+                <ScalarProperty Name="Birim_KisaAd" ColumnName="Birim_KisaAd" />
+                <ScalarProperty Name="Birim_Adi_ENG" ColumnName="Birim_Adi_ENG" />
+                <ScalarProperty Name="BirimDesimalKodu" ColumnName="BirimDesimalKodu" />
+                <ScalarProperty Name="VerdigiUnvan" ColumnName="VerdigiUnvan" />
+                <ScalarProperty Name="Kapasite" ColumnName="Kapasite" />
+                <ScalarProperty Name="Ogretim_Dili" ColumnName="Ogretim_Dili" />
+                <ScalarProperty Name="Ogretim_Tipi" ColumnName="Ogretim_Tipi" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="www" ColumnName="www" />
+                <ScalarProperty Name="Donem" ColumnName="Donem" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Azami" ColumnName="Azami" />
+                <ScalarProperty Name="AzamiDonem" ColumnName="AzamiDonem" />
+                <ScalarProperty Name="BirimTip" ColumnName="BirimTip" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="OSYMKodu" ColumnName="OSYMKodu" />
+                <ScalarProperty Name="PuanTuru" ColumnName="PuanTuru" />
+                <ScalarProperty Name="AlisSekli" ColumnName="AlisSekli" />
+                <ScalarProperty Name="Hazirlik" ColumnName="Hazirlik" />
+                <ScalarProperty Name="HazirlikTipi" ColumnName="HazirlikTipi" />
+                <ScalarProperty Name="KurulusTarihi" ColumnName="KurulusTarihi" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="OsymBursluKodu" ColumnName="OsymBursluKodu" />
+                <ScalarProperty Name="OsymBurssuzKodu" ColumnName="OsymBurssuzKodu" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+                <ScalarProperty Name="YoKSisID" ColumnName="YoKSisID" />
+                <ScalarProperty Name="BasPuan" ColumnName="BasPuan" />
+                <ScalarProperty Name="PuanTurYL" ColumnName="PuanTurYL" />
+                <ScalarProperty Name="HarcAzami" ColumnName="HarcAzami" />
+                <ScalarProperty Name="dilsinavi" ColumnName="dilsinavi" />
+                <ScalarProperty Name="Lisansort" ColumnName="Lisansort" />
+                <ScalarProperty Name="dilpuani" ColumnName="dilpuani" />
+                <ScalarProperty Name="Birimseviye" ColumnName="Birimseviye" />
+                <ScalarProperty Name="KimlikKisaAd" ColumnName="KimlikKisaAd" />
+                <ScalarProperty Name="Anabilimdali" ColumnName="Anabilimdali" />
+                <ScalarProperty Name="YKKBirim_Id" ColumnName="YKKBirim_Id" />
+                <ScalarProperty Name="Fakulte_Id" ColumnName="Fakulte_Id" />
+                <ScalarProperty Name="Fakulte_Adi" ColumnName="Fakulte_Adi" />
+                <ScalarProperty Name="BirimDipDefAd" ColumnName="BirimDipDefAd" />
+                <ScalarProperty Name="UstBirimAd" ColumnName="UstBirimAd" />
+                <ScalarProperty Name="DipDefterisim" ColumnName="DipDefterisim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroup">
+            <EntityTypeMapping TypeName="NoktaGSUModel.UserGroup">
+              <MappingFragment StoreEntitySet="UserGroup">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="NoktaGSUModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="BireyId" ColumnName="BireyId" />
+                <ScalarProperty Name="Birim_Id" ColumnName="Birim_Id" />
+                <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Adres">
+            <EntityTypeMapping TypeName="NoktaGSUModel.Adres">
+              <MappingFragment StoreEntitySet="Adres">
+                <ScalarProperty Name="AdresId" ColumnName="AdresId" />
+                <ScalarProperty Name="Birey_Id" ColumnName="Birey_Id" />
+                <ScalarProperty Name="Adres1" ColumnName="Adres" />
+                <ScalarProperty Name="semt" ColumnName="semt" />
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+                <ScalarProperty Name="il" ColumnName="il" />
+                <ScalarProperty Name="Ulke" ColumnName="Ulke" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="PostaKodu" ColumnName="PostaKodu" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="Birim_Id" ColumnName="Birim_Id" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+                <ScalarProperty Name="ogrencino" ColumnName="ogrencino" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Iletisim">
+            <EntityTypeMapping TypeName="NoktaGSUModel.Iletisim">
+              <MappingFragment StoreEntitySet="Iletisim">
+                <ScalarProperty Name="IletisimId" ColumnName="IletisimId" />
+                <ScalarProperty Name="Birey_Id" ColumnName="Birey_Id" />
+                <ScalarProperty Name="Birim_Id" ColumnName="Birim_Id" />
+                <ScalarProperty Name="IletisimTip" ColumnName="IletisimTip" />
+                <ScalarProperty Name="Numara" ColumnName="Numara" />
+                <ScalarProperty Name="Dahili" ColumnName="Dahili" />
+                <ScalarProperty Name="Oncelik" ColumnName="Oncelik" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_Son50MezunGetir" FunctionName="NoktaGSUModel.Store.USP_Son50MezunGetir" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NoktaGSUModel.USP_Son50MezunGetir_Result">
+                <ScalarProperty Name="Birey_Id" ColumnName="Birey_Id" />
+                <ScalarProperty Name="Descriptor" ColumnName="Descriptor" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="AyrilisTarihi" ColumnName="AyrilisTarihi" />
+                <ScalarProperty Name="NotOrtalamasi" ColumnName="NotOrtalamasi" />
+                <ScalarProperty Name="anne_adi" ColumnName="anne_adi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="AkademikYil">
+            <EntityTypeMapping TypeName="NoktaGSUModel.AkademikYil">
+              <MappingFragment StoreEntitySet="AkademikYil">
+                <ScalarProperty Name="Yil" ColumnName="Yil" />
+                <ScalarProperty Name="birimtip" ColumnName="birimtip" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="AYStatu" ColumnName="AYStatu" />
+                <ScalarProperty Name="Bitis_Tarihi" ColumnName="Bitis_Tarihi" />
+                <ScalarProperty Name="Baslangic_Tarihi" ColumnName="Baslangic_Tarihi" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Descriptor" ColumnName="Descriptor" />
+                <ScalarProperty Name="AY_Id" ColumnName="AY_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MezuniyetDetay">
+            <EntityTypeMapping TypeName="NoktaGSUModel.MezuniyetDetay">
+              <MappingFragment StoreEntitySet="MezuniyetDetay">
+                <ScalarProperty Name="CuppeTeslimTarih" ColumnName="CuppeTeslimTarih" />
+                <ScalarProperty Name="CuppeAlimTarih" ColumnName="CuppeAlimTarih" />
+                <ScalarProperty Name="ModUserDate" ColumnName="ModUserDate" />
+                <ScalarProperty Name="ModUserId" ColumnName="ModUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="AY_Id" ColumnName="AY_Id" />
+                <ScalarProperty Name="Cuppe" ColumnName="Cuppe" />
+                <ScalarProperty Name="MezTar" ColumnName="MezTar" />
+                <ScalarProperty Name="Birey_Id" ColumnName="Birey_Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

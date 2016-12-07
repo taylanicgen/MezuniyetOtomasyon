@@ -1,0 +1,152 @@
+﻿@model KullaniciGirisModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html class="fixed" lang="tr">
+<head>
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    <title>Giriş | GSÜ-Mezuniyet Bilgi Sistemi</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="GSÜ Yazılım Grubu">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="~/content/assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/content/assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/content/assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="~/content/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/content/assets/stylesheets/theme.css" />
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/content/assets/stylesheets/theme-custom.css">
+
+    <!-- Head Libs -->
+    <script src="~/content/assets/vendor/modernizr/modernizr.js"></script>
+</head>
+<body>
+    <!-- start: page -->
+    <section class="body-sign">
+        <div class="center-sign">
+            <a href="/" class="logo pull-left">
+                <img src="~/content/assets/images/logo_mezuniyet_otomasyonu.png" height="35" alt="" style="margin-top: 20px" />
+            </a>
+            <div class="panel panel-sign">
+                <div class="panel-title-sign mt-xl text-right">
+                    <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Giriş Yap</h2>
+                </div>
+                <div class="panel-body">
+
+
+                    @using (Html.BeginForm("Giris", "Kullanici", null, FormMethod.Post, null))
+                    {
+                        <div class="form-group mb-lg">
+                            @Html.LabelFor(x => x.kullaniciAdi)
+                            <div class="input-group input-group-icon">
+                                @Html.TextBoxFor(x => x.kullaniciAdi, new { @class = "form-control input-lg" })
+                                <span class="input-group-addon">
+                                    <span class="icon icon-lg">
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </span>
+
+                            </div>
+                            @Html.ValidationMessageFor(x => x.kullaniciAdi)
+                        </div>
+                        <div class="form-group mb-lg">
+                            <div class="clearfix">
+                                @Html.LabelFor(x => x.kullaniciSifre)
+                            </div>
+                            <div class="input-group input-group-icon">
+                                @Html.PasswordFor(x => x.kullaniciSifre, new { @class = "form-control input-lg" })
+                                <span class="input-group-addon">
+                                    <span class="icon icon-lg">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+                                </span>
+
+                            </div>
+                            @Html.ValidationMessageFor(x => x.kullaniciSifre)
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button type="submit" class="btn btn-primary hidden-xs">Giriş Yap</button>
+                                <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Giriş Yap</button>
+                            </div>
+                            
+                            <div class="col-md-12 mt-md">
+                                @if (TempData["SonucGiris"] != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        @TempData["SonucGiris"]
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+            <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2015 GSÜ Yazılım</p>
+        </div>
+    </section>
+    <!-- end: page -->
+    <!-- Vendor -->
+    <script src="~/content/assets/vendor/jquery/jquery.js"></script>
+    <script src="~/content/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    @*<script src="~/content/assets/vendor/jquery-cookie/jquery.cookie.js"></script>*@
+
+    <script src="~/content/assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="~/content/assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="~/content/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/content/assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script src="~/content/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="~/content/assets/javascripts/theme.js"></script>
+
+
+    <!-- Theme Initialization Files -->
+    <script src="~/content/assets/javascripts/theme.init.js"></script>
+    <!-- Analytics to Track Preview Website -->
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script>
+        function fnOnBeginLogin(data) {
+            $("button[type=submit]").hide();
+        }
+
+        function fnOnSuccessLogin(data) {
+
+            if (data.success) {
+                $("button[type=submit]").hide();
+                $("#targetLoginForm").html("").append(
+                    $("<div/>").addClass("alert")
+                        .addClass("alert-success")
+                        .html("Giriş başarılı. Yönlendiriliyorsunuz.")
+                    );
+                window.location.href = "/";
+            } else {
+                $("button[type=submit]").show();
+            }
+        }
+    </script>
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>

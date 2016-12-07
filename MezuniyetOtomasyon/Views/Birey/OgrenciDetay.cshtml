@@ -1,0 +1,143 @@
+﻿@model MezuniyetOtomasyon.Models.BireyModel
+@{
+    ViewBag.Title = "Öğrenci Bilgileri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+
+    //byte[] newfile = Convert.FromBase64String(@Model.resim);
+   // File.WriteAllBytes(@"C:\path\to\file.png", newfile);
+    
+
+}
+
+<div class="container">
+    <div class="row">
+        <section class="panel">
+                <div class="col-md-10">
+                    <div class="panel-body">
+                        <div class="panel-body" style="border:solid">
+                            <div class="col-md-2">
+
+                                @if (Model.resim != null)
+                                {
+                                    <img src='@Url.Action("FotoGetir","Birey", new { bireyID = Model.birey_Id})' align="middle" style="border: dashed; border-color: darkred" />
+                                }
+                                <br /><br />
+                                <a class="btn btn-primary" href="/Birey/OgrenciDetay?OgrenciNo=@(Model.ogrenci_no)&islem=detay">Cübbe İşlemleri</a>
+                                @*<input type="button" value="Cübbe İşlemleri" onclick="location.href='@Url.Action("CubbeIndex", "Cubbe", new { bireyId = @Model.birey_Id })'" class="btn btn-primary" />*@
+                            </div>
+
+
+                            <article class="col-md-10">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <colgroup>
+                                            <col class="col-md-2">
+                                            <col class="col-md-4">
+                                            <col class="col-md-2">
+                                            <col class="col-md-4">
+                                        </colgroup>
+
+                                        <tbody>
+                                            
+
+                                            <tr>
+                                                <th style="color: darkred">Ad Soyad:</th>
+                                                <td>@Model.isim @Model.soyad</td>
+                                                <th style="color: darkred">Fakülte:</th>
+                                                <td>@Model.birim_adi</td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <th style="color: darkred">Öğrenci No:</th>
+                                                <td>@Model.ogrenci_no</td>
+                                                <th style="color: darkred">Mezuniyet Tarihi:</th>
+                                                <td>@Model.mezuniyet_tarihi</td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <th style="color: darkred">Ev Adresi:</th>
+                                                <td>@Model.adres</td>
+                                                <th style="color: darkred">İş Adresi:</th>
+                                                <td>iş adresi</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th style="color: darkred">Cep Telefonu:</th>
+                                                <td>@Model.cep_no</td>
+                                                <th style="color: darkred">İş Telefonu:</th>
+                                                <td>iş no</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th style="color: darkred">Ev Telefonu:</th>
+                                                <td>@Model.ev_no</td>
+                                                <th style="color: darkred">Görevi:</th>
+                                                <td>görev</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th style="color:darkred">E-Posta:</th>
+                                                <td>@Model.e_posta</td>
+                                                <th style="color: darkred">Ünvanı:</th>
+                                                <td>ünvan</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </article>
+                        </div>
+                        @{
+                            string islem = Request.QueryString["islem"];
+                        }
+
+                        @if (islem != null && islem == "detay"&&Model.birey_Id!=null)
+                        {
+                            { Html.RenderAction("CubbeIndex", "Cubbe", new { bireyId = Model.birey_Id }); }
+                        }
+                    </div>
+            </div>
+            
+        </section>
+    </div>
+
+</div>
+
+@section scripts{    
+
+<script>
+    $("#cubbeTeslim").hide();
+    $("#cubbeAlim").hide();
+    $("#gizle").hide();
+    $("input[type='radio']").change(function () {
+
+
+        if ($(this).val() == "alim") {
+            $("#cubbeAlim").show();
+            $("#cubbeTeslim").hide();
+        }
+        else if ($(this).val() == "teslim") {
+            $("#cubbeTeslim").show();
+            $("#cubbeAlim").hide();
+        }
+
+    });
+
+
+    $('[data-plugin-datepicker]').val("@DateTime.Now.ToShortDateString()");
+    $('[data-plugin-datepicker]').datepicker({
+        language: 'tr-TR',
+        format: "dd.mm.yyyy",
+    });
+</script>
+
+
+}
